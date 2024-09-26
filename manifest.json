@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Sharesome Session Keeper",
+  "version": "1.0",
+  "description": "Sync the auth token between tabs, keeping the session active during navigation.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "cookies",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://sharesome.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://sharesome.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
